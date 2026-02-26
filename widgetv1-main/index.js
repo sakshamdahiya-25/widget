@@ -105,6 +105,7 @@ class ChatWidget extends HTMLElement {
           border: none;
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           position: relative;
+          z-index: 30;
           overflow: hidden;
           touch-action: manipulation;
           -webkit-tap-highlight-color: transparent;
@@ -189,6 +190,7 @@ class ChatWidget extends HTMLElement {
         }
 
         #chat-window {
+          z-index: 10;
           position: absolute;
           bottom: 80px;
           right: 0;
@@ -1411,7 +1413,8 @@ class ChatWidget extends HTMLElement {
     this.initialGreeting = "";
 
     // Show the chat window on initial load; users can close it via the button or header control.
-    chatWindow.classList.add("open");
+    // Start closed so the floating button is the primary opener.
+    // chatWindow.classList.add("open");
 
     // Immediately ask for contact info when the widget starts.
     // Directly toggle the sections so the name/email form shows right away.
