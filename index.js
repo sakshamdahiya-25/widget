@@ -54,22 +54,22 @@ class ChatWidget extends HTMLElement {
           -moz-osx-font-smoothing: grayscale;
           font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
           
-          /* Premium Blue Gradient Color Palette */
-          --primary-deep: #0A4D68;
-          --primary-ocean: #088395;
-          --primary-cyan: #05C3DD;
-          --primary-bright: #00D9FF;
-          --accent-royal: #1E56A0;
-          --accent-sky: #4BA3C3;
-          --accent-light: #84D2F6;
-          --accent-ice: #C4E4FF;
-          
+          /* ALC Lawyers — match site background/theme */
+          --primary-deep: #2b2e83; /* site's accent */
+          --primary-ocean: #0b6b9a; /* site's accent-2 */
+          --primary-cyan: #06b6d4; /* bright teal */
+          --primary-bright: #00d9ff;
+          --accent-royal: #1b2a6b;
+          --accent-sky: #1e90a1;
+          --accent-light: #8fe1e0;
+          --accent-ice: #eaf9fb;
+
           /* Gradient Definitions */
-          --gradient-primary: linear-gradient(135deg, #0A4D68 0%, #088395 50%, #05C3DD 100%);
-          --gradient-accent: linear-gradient(135deg, #1E56A0 0%, #4BA3C3 50%, #84D2F6 100%);
-          --gradient-shimmer: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
-          --gradient-light: linear-gradient(135deg, rgba(5, 195, 221, 0.1) 0%, rgba(8, 131, 149, 0.1) 100%);
-          --gradient-dark: linear-gradient(135deg, rgba(10, 77, 104, 0.15) 0%, rgba(8, 131, 149, 0.15) 100%);
+          --gradient-primary: linear-gradient(90deg, #2b2e83 0%, #0b6b9a 100%);
+          --gradient-accent: linear-gradient(135deg, #1b2a6b 0%, #1e90a1 50%, #8fe1e0 100%);
+          --gradient-shimmer: linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
+          --gradient-light: linear-gradient(135deg, rgba(11, 107, 154, 0.06) 0%, rgba(43, 46, 131, 0.06) 100%);
+          --gradient-dark: linear-gradient(135deg, rgba(43,46,131,0.12) 0%, rgba(11,107,154,0.08) 100%);
           
           /* Glassmorphism */
           --glass-bg: rgba(255, 255, 255, 0.1);
@@ -347,6 +347,40 @@ class ChatWidget extends HTMLElement {
           position: relative;
           overflow: hidden;
           min-height: 70px;
+        }
+
+        .chat-title {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          width: 100%;
+          padding: 0 40px;
+        }
+
+        .title-icon {
+          width: 28px;
+          height: 28px;
+          flex-shrink: 0;
+          filter: drop-shadow(0 2px 8px rgba(0,0,0,0.15));
+        }
+
+        .title-text {
+          display: flex;
+          flex-direction: column;
+          line-height: 1;
+        }
+
+        .title-text .main {
+          font-weight: 700;
+          font-size: 15px;
+          color: white;
+        }
+
+        .title-text .sub {
+          font-size: 11px;
+          color: rgba(255,255,255,0.9);
+          font-weight: 600;
+          opacity: 0.95;
         }
 
         .chat-header::before {
@@ -1005,13 +1039,13 @@ class ChatWidget extends HTMLElement {
 
         .message.bot {
           align-self: flex-start;
-          background: rgba(255, 255, 255, 0.95);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
+          background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(246,252,252,1) 100%);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
           color: var(--text-primary);
-          border: 1px solid rgba(5, 195, 221, 0.15);
+          border: 1px solid rgba(6,182,212,0.12);
           border-bottom-left-radius: 6px;
-          box-shadow: 0 2px 8px rgba(10, 77, 104, 0.1), 
+          box-shadow: 0 2px 8px rgba(10, 77, 104, 0.08), 
                       inset 0 1px 0 rgba(255, 255, 255, 0.8);
         }
 
@@ -1094,7 +1128,7 @@ class ChatWidget extends HTMLElement {
           top: 6px;
           width: 36px;
           height: 36px;
-          background: var(--gradient-primary);
+          background: linear-gradient(90deg,var(--primary-ocean),var(--primary-cyan));
           color: white;
           border: none;
           border-radius: 12px;
@@ -1187,26 +1221,26 @@ class ChatWidget extends HTMLElement {
           display: inline-flex;
           align-items: center;
           gap: 6px;
-          padding: 4px 10px;
+          padding: 6px 12px;
           background: white;
           backdrop-filter: blur(8px);
           -webkit-backdrop-filter: blur(8px);
-          border-radius: 12px;
-          font-size: 11px;
-          font-weight: 500;
+          border-radius: 999px;
+          font-size: 12px;
+          font-weight: 600;
           color: var(--primary-ocean);
-          border: 1px solid rgba(5, 195, 221, 0.3);
-          box-shadow: 0 2px 6px rgba(10, 77, 104, 0.1);
+          border: 1px solid rgba(6, 182, 212, 0.12);
+          box-shadow: 0 2px 6px rgba(11,79,108,0.06);
         }
 
         .status-badge::before {
           content: '';
-          width: 6px;
-          height: 6px;
+          width: 8px;
+          height: 8px;
           border-radius: 50%;
-          background: #22C55E;
+          background: var(--primary-cyan);
           animation: pulse-dot 2s ease-in-out infinite;
-          box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+          box-shadow: 0 0 8px rgba(6,182,212,0.35);
         }
 
         @keyframes pulse-dot {
@@ -1257,28 +1291,13 @@ class ChatWidget extends HTMLElement {
               </button>
             </div>
             <span class="chat-title">
-              <svg class="title-icon" viewBox="0 0 24 24" fill="currentColor">
-                <!-- Teddy Bear Icon - Clean & Simple -->
-                <!-- Left ear -->
-                <circle cx="7.5" cy="7.5" r="3" fill="currentColor"/>
-                <circle cx="7.5" cy="7.5" r="1.8" fill="white" opacity="0.3"/>
-                <!-- Right ear -->
-                <circle cx="16.5" cy="7.5" r="3" fill="currentColor"/>
-                <circle cx="16.5" cy="7.5" r="1.8" fill="white" opacity="0.3"/>
-                <!-- Head -->
-                <circle cx="12" cy="13" r="6" fill="currentColor"/>
-                <!-- Left eye -->
-                <circle cx="9.8" cy="11.8" r="0.9" fill="white"/>
-                <circle cx="9.8" cy="11.8" r="0.4" fill="currentColor"/>
-                <!-- Right eye -->
-                <circle cx="14.2" cy="11.8" r="0.9" fill="white"/>
-                <circle cx="14.2" cy="11.8" r="0.4" fill="currentColor"/>
-                <!-- Nose -->
-                <ellipse cx="12" cy="14.2" rx="0.7" ry="0.5" fill="white"/>
-                <!-- Mouth -->
-                <path d="M 10.8 15.8 Q 12 16.8 13.2 15.8" stroke="white" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+              <img id="widget-logo" class="title-icon" src="" alt="Logo" style="width:28px;height:28px;border-radius:6px;object-fit:cover;display:none;" />
+              <svg class="title-icon title-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 7h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7z" fill="white" opacity="0.06"/>
+                <path d="M8 7V5a4 4 0 1 1 8 0v2" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="6" y="9" width="12" height="6" rx="1" fill="white" opacity="0.06"/>
               </svg>
-              <span>Ask Teddy !</span>
+              <span class="title-text"><span class="main">ALC Lawyers</span><span class="sub">Immigration Law</span></span>
               <span class="status-badge">Online</span>
             </span>
             <div class="header-actions right">
@@ -1399,6 +1418,20 @@ class ChatWidget extends HTMLElement {
     const messagesContainer = this.shadowRoot.querySelector("#messages");
     const chatInput = this.shadowRoot.querySelector("#chat-input");
     const sendBtn = this.shadowRoot.querySelector("#send-btn");
+
+    // Load custom logo if provided via `logo-url` attribute
+    try {
+      const logoUrl = this.getAttribute("logo-url");
+      const logoImg = this.shadowRoot.querySelector("#widget-logo");
+      const svgIcon = this.shadowRoot.querySelector(".title-icon-svg");
+      if (logoUrl && logoImg) {
+        logoImg.src = logoUrl;
+        logoImg.style.display = "block";
+        if (svgIcon) svgIcon.style.display = "none";
+      }
+    } catch (err) {
+      // ignore
+    }
 
     const apiUrlAttr = this.getAttribute("api-url");
     const apiUrl = apiUrlAttr || "https://cptc-ai-chatbot-443305236090.us-central1.run.app/chat/message";
@@ -1727,9 +1760,9 @@ class ChatWidget extends HTMLElement {
       }
 
       const payload = {
-        text,
-        session_id: this.sessionId,
-        ...this.lead
+        message: text,
+        name: this.lead?.name,
+        email: this.lead?.email
       };
 
       // Show typing indicator

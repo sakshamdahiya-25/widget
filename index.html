@@ -1,12 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ALC Lawyers — Australian Immigration Law</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root{--nav-height:68px;--accent:#2b2e83;--accent-2:#0b6b9a}
+      html,body{height:100%;margin:0;font-family:Outfit,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+      .topbar{background:#1f2650;color:#fff;padding:12px 24px;display:flex;align-items:center;justify-content:space-between}
+      .brand{display:flex;gap:18px;align-items:center}
+      .brand .logo{font-weight:800;font-size:20px;letter-spacing:0.6px}
+      .brand small{display:block;font-size:12px;opacity:0.9}
+      .top-info{display:flex;gap:22px;align-items:center;font-size:14px}
+      .top-info .contact{background:rgba(255,255,255,0.06);padding:10px 14px;border-radius:8px}
+      nav.navbar{display:flex;justify-content:center;background:transparent;padding:14px 24px;border-bottom:1px solid rgba(0,0,0,0.06)}
+      .nav-links{display:flex;gap:22px;list-style:none;padding:0;margin:0}
+      .nav-links a{color:var(--accent);text-decoration:none;font-weight:600}
+      .hero{height:calc(100vh - var(--nav-height) - 56px);min-height:540px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+      .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(180deg,rgba(10,20,40,0.25),rgba(10,20,40,0.45));z-index:1}
+      .hero .bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1533105075396-51b0b3b0b2c3?auto=format&fit=crop&w=2000&q=80');background-size:cover;background-position:center;filter:brightness(0.9);transform:scale(1.02)}
+      .hero .content{position:relative;z-index:2;color:#fff;text-align:center;padding:40px 24px;max-width:1100px}
+      .kicker{font-size:14px;opacity:0.85;text-transform:uppercase;letter-spacing:1.6px;margin-bottom:12px}
+      .headline{font-size:44px;line-height:1.02;font-weight:800;margin:8px 0}
+      .subhead{font-size:20px;opacity:0.95;margin:14px 0 24px}
+      .cta{display:inline-flex;gap:12px}
+      .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:14px 18px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+      .btn.secondary{background:rgba(255,255,255,0.95);color:var(--accent);padding:12px 16px}
+      footer{padding:32px 24px;text-align:center;color:#666;font-size:14px}
+      @media (max-width:900px){.headline{font-size:34px}.top-info{display:none}.hero{min-height:480px}}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo">ALC Lawyers</div>
+          <div style="font-size:13px;color:#cfd7ff">Level 5, 727 George Street, Haymarket, Sydney, NSW 2000</div>
+        </div>
+        <div class="top-info">
+          <div style="font-size:13px;opacity:0.9">info@alclawyers.com.au</div>
+          <div class="contact">
+            <div style="font-size:13px;">Call Us Today:</div>
+            <div style="font-weight:800;font-size:16px;line-height:1.1">+61 2 8243 1006<br>+61 2 7900 9570</div>
+          </div>
+        </div>
+      </div>
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Migration News</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-<body>
+    <main>
+      <section class="hero">
+        <div class="bg" aria-hidden="true"></div>
+        <div class="content">
+          <div class="kicker">WE ARE ALC LAWYERS.</div>
+          <h1 class="headline">AUSTRALIAN IMMIGRATION LAW</h1>
+          <p class="subhead">Get expert assistance with your immigration matters. Experienced, trusted, and ready to help you navigate complex visa processes.</p>
+          <div class="cta">
+            <button class="btn">Contact Us</button>
+            <button class="btn secondary">Learn More</button>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <script src="./index.js"></script>
+    <footer>
+      © <span id="year"></span> ALC Lawyers. All rights reserved.
+    </footer>
 
-  <chat-widget api-url="https://amoeba.powersmy.biz/chat" sync-human-url="https://century-ecru.vercel.app"></chat-widget>
+    <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 
-</body>
-
+    <!-- keep chat widget available -->
+    <script src="./index.js"></script>
+    <chat-widget api-url="https://amoeba.powersmy.biz/chat" sync-human-url="https://century-ecru.vercel.app"></chat-widget>
+  </body>
 </html>
